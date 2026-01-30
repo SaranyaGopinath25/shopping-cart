@@ -8,7 +8,7 @@ function CartItem({item, fromCart}) {
               <img alt={name} src={imageUrl} width={300} height={300}  className={`${ !fromCart && "group-hover:-translate-y-2 transition-all"} duration-500`}/>
               <div className='absolute bottom-5 left-5'>
                 <h1 className={`text-zinc-700 ${ fromCart && "text-sm"}`}>{name}</h1>
-                <span className={`text-pink-400 ${ fromCart && "text-sm"}`}>${price}</span>
+                <span className={`text-pink-400 ${ fromCart && "text-sm"}`}>{price} kr</span>
               </div>
               <CartButtons item={item} fromCart={fromCart}/>
         </div>
