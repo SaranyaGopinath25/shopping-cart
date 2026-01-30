@@ -1,4 +1,5 @@
 import React from 'react'
+import CartButtons from './CartButtons';
 
 function CartItem({item}) {
     const {id, name, imageUrl, price} = item;
@@ -10,6 +11,7 @@ function CartItem({item}) {
                 <h1 className='text-zinc-700 text-sm'>{name}</h1>
                 <span className='text-pink-400 text-sm'>${price}</span>
               </div>
+              <CartButtons item={item}/>
         </div>
   )
 }

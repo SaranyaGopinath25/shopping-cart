@@ -9,6 +9,10 @@ function App() {
     setItems();
   },[])
 
+  useEffect(() => {
+    console.log(allItems);
+  },[allItems])
+
   return (
     <div className="grid place-items-center py-20">
       <h1 className="text-5xl italic text-gray-500 mb-16">
