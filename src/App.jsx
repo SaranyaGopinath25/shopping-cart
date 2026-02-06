@@ -7,6 +7,7 @@ function App() {
   const {allItems, setItems} = useCart();
 
   useEffect(()=>{
+    console.log("Setting items");
     setItems();
   },[])
 

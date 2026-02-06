@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import {useCart} from '../context/cartContext';
 import CartItem from "./CartItem";
 import { formatCurrency } from "../utilities/formatCurrency";
+import { setItemInLocalStorage } from "../utilities/localStorageFns";
 
 function ShoppingCart() {
     const [isOpen, setIsOpen] = useState(false);
@@ -12,14 +13,20 @@ function ShoppingCart() {
     const {allItems} = useCart();
 
     useEffect(() => {
+        console.log("Updating cart items and total price :::: "+allItems);
         const inCartItems = allItems.filter((item) => item.inCart);
         setCartItems(inCartItems?.reverse());
+        console.log("In cart items :::: "+inCartItems);
 
         const price = inCartItems.reduce((accumulator, item) => {
             return (accumulator += item.price * item.quantity)
         },0);
 
         setTotalPrice(price);
+        if(inCartItems.length !== 0){
+            console.log("Setting cart items in local storage :::: "+inCartItems);
+        setItemInLocalStorage("cartItems", inCartItems);
+        }
 
 
     },[allItems]);
